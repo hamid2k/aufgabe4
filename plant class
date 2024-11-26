@@ -1,0 +1,52 @@
+package com.ubung4;
+
+public class Plant {
+	private double height;
+	private String type;
+	private int waterLevel;
+	double height1 = 2.0;
+	double height2 = 2.0;
+	
+	public double getHeight() {
+		return height;
+	}
+	
+	public String getType() {
+		return type;
+	}
+	
+	public int getwaterLevel() {
+		return waterLevel;
+	}
+	
+	public void setHeight(double newHeight) {
+		  if (newHeight >= 0) {
+	            height = newHeight;
+	        } else {
+	            System.out.println("Height cannot be negative.");
+	        }
+	}
+	
+	public void setType(String newType) {
+		type = newType;
+	}
+	
+	public void setwaterLevel(int newWaterlevel) {
+		  if (newWaterlevel <= 10) {
+	            waterLevel = newWaterlevel;
+	        } else {
+	            System.out.println("Water level cannot be more than 10.");
+	        }
+	}
+	public void grow(int sunlightHours) {
+		height += 0.5 * sunlightHours;
+	}
+	
+	public void water(int amount) {
+		waterLevel += amount;
+	}
+	
+	public boolean needWater(int enoughLevel) {
+	return enoughLevel < 5;
+	 }
+}
