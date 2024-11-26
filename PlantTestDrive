@@ -1,0 +1,65 @@
+package com.ubung4;
+
+public class PlantTestDrive {
+	public static void main(String[] args) {
+		Plant plant = new Plant();
+		plant.setHeight(10.0);
+		plant.setType("Rose");
+		plant.setwaterLevel(3);
+
+		for (int sunHour = 0; sunHour <= 2; sunHour++) {
+			plant.grow(sunHour);
+			System.out.println("Die neue height nach dem " + sunHour + " Stunde ist: " + plant.getHeight());
+		}
+
+		for (int wassermenge = 1; wassermenge <= 3; wassermenge++) {
+			plant.water(wassermenge);
+			System.out.println("New water Level is: " + plant.getwaterLevel());
+		}
+
+		for (int i = 1; i <= 5; i++) {
+			boolean enough = plant.needWater(i);
+			if (enough) { //Why the return value here is true while default 
+				System.out.println("The water level is not enough yet.");
+			} else {
+
+			}
+		}
+
+		 if (plant.needWater(0)) {
+				System.out.println("The water level is not enough yet.");
+				plant.water(5);
+		 }else {
+			 System.out.println("The water level is enough.");
+		 }
+
+		if (plant.height1 == plant.height2) {
+			System.out.println("Die beibe Variablen sind gleich");
+		} else {
+			System.out.println("Dies beide Variablen sind nicht gleich");
+		}
+
+		Plant plant1 = new Plant();
+		Plant plant2 = new Plant();
+
+		plant1.setHeight(1.0);
+		plant1.setType("Cactus");
+		plant1.setwaterLevel(3);
+		plant2.setHeight(1.0);
+		plant2.setType("Cactus");
+		plant2.setwaterLevel(3);
+		System.out.println(plant1 == plant2); // Das Oprator == auf Obijekten Vergleicht Referenz nicht inhalt
+
+		Plant plant3 = new Plant();
+		Plant plant4 = new Plant();
+
+		plant3.setHeight(1.0);
+		plant3.setType("Cactus");
+		plant3.setwaterLevel(3);
+		plant4.setHeight(1.0);
+		plant4.setType("Rose");
+		plant4.setwaterLevel(3);
+		System.out.println(plant3.getType().equals(plant4.getType()));
+		System.out.println(plant3.getType() == plant4.getType());
+	}
+}
